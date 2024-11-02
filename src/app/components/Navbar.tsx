@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -20,10 +21,12 @@ export default function Navbar() {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10 rounded-full">
-              <img
+            <div className="w-10 rounded-full relative">
+              <Image
                 alt="User avatar"
                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                fill
+                sizes="40px"
               />
             </div>
           </div>
