@@ -2,6 +2,7 @@
 
 import React from "react";
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 interface SidebarProps {
   children: ReactNode;
@@ -19,7 +20,16 @@ export default function Sidebar({ children }: SidebarProps) {
           className="drawer-overlay"
         />
         <ul className="menu bg-base text-base-content min-h-full p-4 gap-2">
-          <img className="w-36" src="/logo.svg" alt="logo" />
+          <div className="w-36 h-9 relative">
+            <Image
+              className="w-full h-full object-contain"
+              src="/logo.svg"
+              alt="logo"
+              fill
+              sizes="144px"
+              priority
+            />
+          </div>
           <li>
             <a>Sidebar Item 1</a>
           </li>
