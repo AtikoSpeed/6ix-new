@@ -8,6 +8,20 @@ import "../styles/Layout.sass";
 <html lang="en">
   <Head />
   <body>
+    <aside class="drawer-open w-52">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-side">
+        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"
+        ></label>
+        <ul class="menu bg-base-200 text-base-content min-h-full p-4">
+          <!-- Sidebar content here -->
+          <img class="w-36" src="./logoipsum.svg" alt="pene" />
+          <li><a>Sidebar Item 1</a></li>
+          <li><a>Sidebar Item 2</a></li>
+          <button class="btn">Cum</button>
+        </ul>
+      </div>
+    </aside>
     <slot />
   </body>
 </html>
