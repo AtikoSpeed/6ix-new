@@ -1,6 +1,7 @@
 ---
 import Head from "../components/Head.astro";
 import Sidebar from "../components/Sidebar.astro";
+import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
 import "../styles/Layout.sass";
 ---
@@ -10,7 +11,7 @@ import "../styles/Layout.sass";
   <Head />
   <body>
     <Sidebar>
-      <button class="btn">Hello</button>
+      <Navbar />
     </Sidebar>
   </body>
 </html>
