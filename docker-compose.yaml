@@ -7,6 +7,7 @@ services:
       - "4321:4321"
     volumes:
       - .:/app
+      - /app/node_modules
     environment:
       - HOST=0.0.0.0
       - PORT=4321
