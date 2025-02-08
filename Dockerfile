@@ -1,10 +1,21 @@
-FROM node:lts AS runtime
+FROM denoland/deno AS base
 WORKDIR /app
 
-COPY . .
+COPY package.json deno.lock ./
 
-RUN npm install
-RUN npm run build
+FROM base AS prod-deps
+RUN deno install --omit=dev
+
+FROM base AS build-deps
+RUN deno install
+
+FROM build-deps AS build
+COPY . .
+RUN deno run build
+
+FROM base AS runtime
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
 
 ENV HOST=0.0.0.0
 ENV PORT=4321
