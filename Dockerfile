@@ -4,7 +4,7 @@ WORKDIR /app
 FROM base AS deps
 COPY deno.lock .
 COPY package.json .
-RUN deno cache --lock=deno.lock
+RUN deno install --lock=deno.lock
 
 FROM deps AS build
 COPY . .
