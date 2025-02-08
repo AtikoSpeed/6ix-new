@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      target: deps
+    command: ["deno", "run", "--allow-net", "--allow-read", "--watch", "dev"]
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      - DENO_ENV=development
+    restart: unless-stopped
+
+  prod:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "4321:4321"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      - DENO_ENV=production
+    restart: unless-stopped
+    profiles:
+      - prod
