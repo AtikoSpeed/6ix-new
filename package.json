@@ -9,10 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.0.2",
     "@tailwindcss/vite": "^4.0.4",
     "astro": "^5.2.5",
     "daisyui": "^5.0.0-beta.7",
-    "tailwindcss": "^4.0.4"
+    "tailwindcss": "^4.0.4",
+    "vite": "^6.1.0"
   },
   "devDependencies": {
     "sass": "^1.84.0"
