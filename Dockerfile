@@ -2,11 +2,11 @@ FROM denoland/deno:alpine
 WORKDIR /app
 
 # Install Node.js
-# RUN apk add --update nodejs npm
+RUN apk add --update nodejs npm
 
 # Copy package files first for better caching
 COPY package.json .
-RUN deno install
+RUN npm install
 
 # Copy the rest of the files
 COPY . .
