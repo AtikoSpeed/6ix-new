@@ -1,7 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import fetchApi from "../lib/strapi";
+import type Article from "../interfaces/article";
+
+const articles = await fetchApi<Article[]>({
+  endpoint: "articles", // the content type to fetch
+  wrappedByKey: "data", // the key to unwrap the response
+});
 ---
 
 <Layout>
   <button class="btn">Hello</button>
+  <ul>
+    {
+      articles.map((article) => (
+        <li>
+          <a href={`/blog/${article.attributes.slug}/`}>
+            {article.attributes.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
