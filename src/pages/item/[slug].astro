@@ -1,14 +1,14 @@
 ---
 import fetchApi from "../../lib/strapi";
-import type Article from "../../interfaces/article";
+import type Item from "../../interfaces/item";
 
 const { slug } = Astro.params;
 
-let article: Article;
+let item: Item;
 
 try {
-  article = await fetchApi<Article>({
-    endpoint: "articles",
+  item = await fetchApi<Item>({
+    endpoint: "items",
     wrappedByKey: "data",
     wrappedByList: true,
     query: {
@@ -23,26 +23,22 @@ try {
 <!doctype html>
 <html lang="en">
   <head>
-    <title>{article.attributes.title}</title>
+    <title>{item.attributes.title}</title>
   </head>
 
   <body>
     <main>
-      <img
+      <!-- <img
         src={import.meta.env.STRAPI_URL +
-          article.attributes.image.data.attributes.url}
-      />
+          item.attributes.image.data.attributes.url}
+      /> -->
 
-      <h1>{article.attributes.title}</h1>
+      <h1>{item.attributes.title}</h1>
 
       <!-- Render plain text -->
-      <p>{article.attributes.content}</p>
-      <!-- Render markdown -->
-      <MyMarkdownComponent>
-        {article.attributes.content}
-      </MyMarkdownComponent>
+      <p>{item.attributes.content}</p>
       <!-- Render html -->
-      <Fragment set:html={article.attributes.content} />
+      <Fragment set:html={item.attributes.content} />
     </main>
   </body>
 </html>
