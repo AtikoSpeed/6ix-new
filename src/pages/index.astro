@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import fetchApi from "../lib/strapi";
-import type Article from "../interfaces/article";
+import type Item from "../interfaces/item";
 
-const articles = await fetchApi<Article[]>({
-  endpoint: "articles", // the content type to fetch
+const items = await fetchApi<Item[]>({
+  endpoint: "items", // the content type to fetch
   wrappedByKey: "data", // the key to unwrap the response
 });
 ---
@@ -12,14 +12,13 @@ const articles = await fetchApi<Article[]>({
 <Layout>
   <button class="btn">Hello</button>
   <ul>
-    {
-      articles.map((article) => (
+    <!-- {
+      items.map((item) => (
         <li>
-          <a href={`/blog/${article.attributes.slug}/`}>
-            {article.attributes.title}
-          </a>
+          <a href={`/item/${item.attributes.slug}/`}>{item.attributes.title}</a>
         </li>
       ))
-    }
+    } -->
+    {console.log("items: " + items)}
   </ul>
 </Layout>
