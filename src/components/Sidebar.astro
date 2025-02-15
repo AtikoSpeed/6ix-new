@@ -1,18 +1,46 @@
 <aside class="drawer drawer-open sticky w-52">
   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content">
-    <!-- Page content here -->
     <slot />
   </div>
   <div class="drawer-side">
     <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"
     ></label>
-    <ul class="menu bg-base text-base-content min-h-full p-4 gap-2">
-      <!-- Sidebar content here -->
-      <img class="w-36" src="./logoipsum.svg" alt="pene" />
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
-      <button class="btn">Button</button>
+    <ul class="menu bg-base text-base-content min-h-full p-4 gap-4 w-48">
+      <li>
+        <button class="btn btn-ghost justify-start font-bold text-lg px-0"
+          >FILTER</button
+        >
+      </li>
+      <li>
+        <a href="/shop/all" class="px-0">VIEW ALL</a>
+      </li>
+      <li class="menu-title px-0">
+        <span>TOP BRANDS</span>
+      </li>
+      <div class="flex flex-col gap-1 px-2">
+        <a href="/shop/brands/raf-simons" class="link link-hover">RAF SIMONS</a>
+        <a href="/shop/brands/ann-demeulemeester" class="link link-hover"
+          >ANN DEMEULEMEESTER</a
+        >
+        <a href="/shop/brands/roberto-cavalli" class="link link-hover"
+          >ROBERTO CAVALLI</a
+        >
+      </div>
+      <li>
+        <a href="/shop/brands" class="px-0">BRANDS A-Z</a>
+      </li>
+      <li>
+        <a href="/shop/sale" class="px-0">SALE</a>
+      </li>
+      <div class="mt-auto">
+        <ul class="menu menu-horizontal gap-2 px-0">
+          <li><a href="/about">About</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/sell">Sell</a></li>
+        </ul>
+      </div>
     </ul>
   </div>
 </aside>
