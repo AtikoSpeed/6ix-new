@@ -10,15 +10,38 @@ const items = await fetchApi<Item[]>({
 ---
 
 <Layout>
-  <button class="btn">Hello</button>
-  <ul>
-    <!-- {
-      items.map((item) => (
-        <li>
-          <a href={`/item/${item.attributes.slug}/`}>{item.attributes.title}</a>
-        </li>
-      ))
-    } -->
-    {console.log("items: " + items)}
-  </ul>
+  <div class="flex h-screen w-screen overflow-hidden -mt-16">
+    <a
+      href="/shop/womens/all"
+      class="w-1/2 h-full relative group overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-[url('/placeholder-women.svg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+      >
+      </div>
+      <div
+        class="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-500 group-hover:bg-opacity-20"
+      >
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <h2 class="text-white text-5xl font-bold tracking-wider">WOMENSWEAR</h2>
+      </div>
+    </a>
+    <a
+      href="/shop/mens/all"
+      class="w-1/2 h-full relative group overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-[url('/placeholder-men.svg')] bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+      >
+      </div>
+      <div
+        class="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-500 group-hover:bg-opacity-20"
+      >
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <h2 class="text-white text-5xl font-bold tracking-wider">MENSWEAR</h2>
+      </div>
+    </a>
+  </div>
 </Layout>
