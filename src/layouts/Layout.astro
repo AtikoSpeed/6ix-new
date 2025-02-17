@@ -10,10 +10,17 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 <!doctype html>
 <html lang="en">
   <Head />
-  <body>
+  <body class="antialiased overflow-hidden">
     <Sidebar>
       <Navbar />
-      <ThemeToggle />
+      <main
+        class="flex-1 w-[calc(100vw-12rem)] h-full grid grid-cols-3 grid-rows-3 auto-rows-max auto-cols-max p-2 overflow-y-auto"
+      >
+        <div class="w-fit h-fit col-start-3 row-start-1 justify-self-end m-2">
+          <ThemeToggle />
+        </div>
+        <!-- <slot /> -->
+      </main>
     </Sidebar>
   </body>
 </html>
